@@ -1,0 +1,42 @@
+.aviasales__card {
+    width: 502px;
+    height: 184px;
+    list-style: none;
+    margin-right: 19px;
+    margin-bottom: 34px;
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  &-price {
+    color: #2196f3;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    font-style: normal;
+  }
+  &-infos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  &-path{
+    color: #A0B0B9;
+    padding: 0;
+    margin: 0
+  }
+  
+  &-time{
+    padding: 0;
+    margin: 0
+  }
+  &-info {
+    margin-left: 20px;
+  }
+  }
+  

@@ -1,0 +1,39 @@
+.transplants {
+    width: 232px;
+    height: 252px;
+    background: #ffffff;
+    box-shadow: 0px 2px 8px rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: -231px;
+
+&__check {
+    font-style: normal;
+    font-weight: 600;
+    align-items: flex-start;
+    
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    margin: 2px 20px;
+}
+&__text {
+    font-style: normal;
+    font-weight: 600;
+    padding: 20px 34px 0;
+    
+}
+&__label{
+    cursor: pointer;
+    height: 42px;
+    position: relative;
+}
+&__label:hover {
+   
+    background: #F1FCFF;
+}
+&__span{
+    padding-left: 54px;
+}
+}
