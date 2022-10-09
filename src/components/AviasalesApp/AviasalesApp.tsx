@@ -3,12 +3,8 @@ import { Button, Spin, Alert } from "antd";
 
 import { LoadingOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../hook";
-
-import {
-  fetchTiketById,
-  fetchTikets,
-  pluseFiveTiket,
-} from "../../store/getTiketsReducer";
+import { fetchTiketById, fetchTikets } from "../../store/ApiReducer";
+import { pluseFiveTiket } from "../../store/getTiketsReducer";
 import AviasalesButton from "../AviasalesButton/AviasalesButton";
 import AviasalesTiketList from "../AviasalesTiketList/AviasalesTiketList";
 import AviasalesTransplants from "../AviasalesTransplants/AviasalesTransplants";

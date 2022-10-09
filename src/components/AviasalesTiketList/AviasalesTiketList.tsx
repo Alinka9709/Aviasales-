@@ -93,7 +93,7 @@ const AviasalesTiketList: React.FC = function () {
 
       {tiketsFiltering().map(({ carrier, price, segments }) => (
         <AviasalesTiket
-          key={Math.random() * 500}
+          key={Math.random() * 400}
           carrier={carrier}
           price={price}
           segments={segments}

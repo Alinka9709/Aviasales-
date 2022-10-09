@@ -1,10 +1,6 @@
 import "./AviasalesTiket.scss";
-// import { AviasalesSegmentsProps } from "../interfaces/AviasalesSegmentsProps";
-import { AviasalesTiketProps } from "../interfaces/AviasalesTiketProps";
 
-// interface AviasalesTiketsProps {
-//   tiket: AviasalesTiketProps;
-// }
+import { AviasalesTiketProps } from "../interfaces/AviasalesTiketProps";
 
 const AviasalesTiket: React.FC<AviasalesTiketProps> = function ({
   carrier,
