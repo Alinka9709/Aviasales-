@@ -5,7 +5,5 @@ export interface AviasalesTiketProps {
   carrier: string;
   price: number;
   segments: AviasalesSegmentsProps[];
-  stop: boolean;
-  
-   
+  // stop: boolean;
 }

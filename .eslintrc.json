@@ -24,7 +24,8 @@
   },
   "plugins": ["react-redux", "@typescript-eslint", "prettier"],
   "rules": {
-    "no-param-reassign": [["off"], {
+    "react/prop-types": 0,
+    "no-param-reassign": [0, {
       "props": false,
       "ignorePropertyModificationsFor": [
         "state"

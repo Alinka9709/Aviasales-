@@ -1,8 +1,8 @@
 export interface AviasalesSegmentsProps {
-  tikets: string;
+  // tikets: string;
   destination: string;
   duration: number;
   origin: string;
   stops: string[];
-  date: string
+  date: string;
 }

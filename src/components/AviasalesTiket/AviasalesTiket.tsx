@@ -1,24 +1,23 @@
 import "./AviasalesTiket.scss";
-import { AviasalesSegmentsProps } from "../interfaces/AviasalesSegmentsProps";
+// import { AviasalesSegmentsProps } from "../interfaces/AviasalesSegmentsProps";
 import { AviasalesTiketProps } from "../interfaces/AviasalesTiketProps";
 
-interface AviasalesTiketsProps {
-  key: number,
-  tiket: AviasalesTiketProps;
-  segments: AviasalesSegmentsProps[];
-  duration: number;
-  destination: string;
-  origin: string;
-}
+// interface AviasalesTiketsProps {
+//   tiket: AviasalesTiketProps;
+// }
 
-const AviasalesTiket: React.FC<AviasalesTiketsProps> = function ({
-  tiket,
+const AviasalesTiket: React.FC<AviasalesTiketProps> = function ({
+  carrier,
+  price,
   segments,
 }) {
   const endOrigin = new Date(segments[0].date);
-  endOrigin.setHours(endOrigin.getHours() + Math.floor(segments[0].duration / 60));
+  endOrigin.setHours(
+    endOrigin.getHours() + Math.floor(segments[0].duration / 60),
+  );
   endOrigin.setMinutes(
-    endOrigin.getMinutes() + Math.ceil(((segments[0].duration % 60) * 60) / 100),
+    endOrigin.getMinutes() +
+      Math.ceil(((segments[0].duration % 60) * 60) / 100),
   );
 
   const endDur = new Date(segments[1].date);
@@ -30,8 +29,8 @@ const AviasalesTiket: React.FC<AviasalesTiketsProps> = function ({
   return (
     <li className="aviasales__card">
       <div className="aviasales__card-wrapper">
-        <span className="aviasales__card-price">{tiket.price}P</span>
-        <span className="aviasales__card-company">{tiket.carrier}</span>
+        <span className="aviasales__card-price">{price}P</span>
+        <span className="aviasales__card-company">{carrier}</span>
       </div>
       <div className="aviasales__card-infos">
         <div className="aviasales__card-info">

@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { AviasalesTiketProps } from "../components/interfaces/AviasalesTiketProps";
