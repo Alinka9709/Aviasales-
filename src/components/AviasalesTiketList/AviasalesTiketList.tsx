@@ -5,6 +5,7 @@ import AviasalesTiket from "../AviasalesTiket/AviasalesTiket";
 import "./AviasalesTiketList.scss";
 import { AviasalesTiketProps } from "../interfaces/AviasalesTiketProps";
 import { AviasalesSegmentsProps } from "../interfaces/AviasalesSegmentsProps";
+import AviasalesButtonPlus from "../AviasalesButton/AviasalesButtonPlus";
 
 const AviasalesTiketList: React.FC = function () {
   const tikets = useAppSelector((state) => state.tikets.tikets);
@@ -45,7 +46,7 @@ const AviasalesTiketList: React.FC = function () {
     }
     return false;
   }
-  const tiketsFiltering = () => {
+  function tiketsFiltering() {
     if (getCondition().length === 0 && !all) {
       return [];
     }
@@ -77,7 +78,7 @@ const AviasalesTiketList: React.FC = function () {
         return 0;
       })
       .slice(0, pluseFive);
-  };
+  }
 
   const hasData = tiketsFiltering().length === 0;
 
@@ -99,6 +100,7 @@ const AviasalesTiketList: React.FC = function () {
           segments={segments}
         />
       ))}
+      {!hasData && <AviasalesButtonPlus />}
     </ul>
   );
 };

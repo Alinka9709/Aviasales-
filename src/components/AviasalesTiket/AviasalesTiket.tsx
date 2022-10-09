@@ -26,7 +26,12 @@ const AviasalesTiket: React.FC<AviasalesTiketProps> = function ({
     <li className="aviasales__card">
       <div className="aviasales__card-wrapper">
         <span className="aviasales__card-price">{price}P</span>
-        <span className="aviasales__card-company">{carrier}</span>
+        <img
+          src={`https://pics.avs.io/99/36/${carrier}.png`}
+          className="aviasales__card-company"
+          alt="pic"
+        />
+        {/* <span className="aviasales__card-company">{carrier}</span> */}
       </div>
       <div className="aviasales__card-infos">
         <div className="aviasales__card-info">
