@@ -2,7 +2,7 @@ import { Button } from "antd";
 import { useAppDispatch } from "../hook";
 import { pluseFiveTiket } from "../../store/getTiketsReducer";
 
-const AviasalesButtonPlus: React.FC = function () {
+function AviasalesButtonPlus() {
   const dispatch = useAppDispatch();
   return (
     <Button
@@ -14,6 +14,6 @@ const AviasalesButtonPlus: React.FC = function () {
       Показать еще 5 билетов!
     </Button>
   );
-};
+}
 
 export default AviasalesButtonPlus;

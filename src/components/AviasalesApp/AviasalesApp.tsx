@@ -11,10 +11,9 @@ import AviasalesTransplants from "../AviasalesTransplants/AviasalesTransplants";
 import img from "../../img/Logo.png";
 import "./Aviasales.scss";
 
-const App: React.FC = function () {
+function App() {
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector((state) => state.tikets);
-  // const tikets = useAppSelector((state) => state.tikets.tikets);
 
   const antIcon = (
     <LoadingOutlined
@@ -49,6 +48,6 @@ const App: React.FC = function () {
       </section>
     </section>
   );
-};
+}
 
 export default App;

@@ -1,21 +1,9 @@
 @import '~antd/dist/antd.css';
 .ant-btn-primary {
-  margin: 0 0 20px 50px;
+  width: 32%;
   color: black;
   background-color: white;
-  
+  margin-bottom: 20px;
 }
 
-.aviasales__button {
-  font-style: normal;
-  font-weight: 500;
 
-  &:first-child {
-    border-radius: 8px 0 0 8px;
-    
-  }
-  &:last-child {
-    border-radius: 0 8px 8px 0;
-    border-style: double;
-  }
-}

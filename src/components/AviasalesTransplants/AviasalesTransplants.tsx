@@ -1,11 +1,18 @@
 import { useAppDispatch, useAppSelector } from "../hook";
 
-import { selectId } from "../../store/getTiketsReducer";
+import { selectId, selectAll } from "../../store/getTiketsReducer";
+
 import "./AviasalesTransplants.scss";
 
 function AviasalesTransplants() {
   const checkbox = useAppSelector((state) => state.tikets);
   const dispatch = useAppDispatch();
+  const spets = [
+    { label: "without", text: "Без пересадок" },
+    { label: "two", text: "2 пересадки" },
+    { label: "one", text: "1 пересадка" },
+    { label: "three", text: "3 пересадки" },
+  ];
   return (
     <div className="transplants">
       <p className="transplants__text">Количество пересадок</p>
@@ -13,57 +20,30 @@ function AviasalesTransplants() {
         <input
           className="transplants__check"
           type="checkbox"
-          checked={checkbox.all}
+          checked={checkbox.steps.all}
           name=""
           id=""
-          onChange={() => dispatch(selectId("all"))}
+          onChange={() => dispatch(selectAll(!checkbox.steps.all))}
         />
         <span className="transplants__span">все</span>
       </label>
-      <label htmlFor="label" className="transplants__label">
-        <input
-          type="checkbox"
-          className="transplants__check"
-          checked={checkbox.without}
-          name=""
-          id=""
-          onChange={() => dispatch(selectId("without"))}
-        />
-        <span className="transplants__span">Без пересадок</span>
-      </label>
-      <label htmlFor="label" className="transplants__label">
-        <input
-          type="checkbox"
-          className="transplants__check"
-          checked={checkbox.one}
-          name=""
-          id=""
-          onChange={() => dispatch(selectId("one"))}
-        />
-        <span className="transplants__span">1 пересадки</span>
-      </label>
-      <label htmlFor="label" className="transplants__label">
-        <input
-          type="checkbox"
-          className="transplants__check"
-          checked={checkbox.two}
-          name=""
-          id=""
-          onChange={() => dispatch(selectId("two"))}
-        />
-        <span className="transplants__span">2 пересадки</span>
-      </label>
-      <label htmlFor="label" className="transplants__label">
-        <input
-          type="checkbox"
-          className="transplants__check"
-          checked={checkbox.three}
-          name=""
-          id=""
-          onChange={() => dispatch(selectId("three"))}
-        />
-        <span className="transplants__span"> 3 пересадки</span>
-      </label>
+      {spets.map((el) => (
+        <label
+          htmlFor="label"
+          className="transplants__label"
+          key={Math.random() * 100}
+        >
+          <input
+            type="checkbox"
+            className="transplants__check"
+            checked={checkbox.steps[el.label]}
+            name=""
+            id=""
+            onChange={() => dispatch(selectId(el.label))}
+          />
+          <span className="transplants__span">{el.text}</span>
+        </label>
+      ))}
     </div>
   );
 }

@@ -3,23 +3,16 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AviasalesTiketProps } from "../components/interfaces/AviasalesTiketProps";
 
 interface Сheckbox {
-  all: boolean;
-  without: boolean;
-  one: boolean;
-  two: boolean;
-  three: boolean;
   tikets: AviasalesTiketProps[];
   status: boolean;
   error: boolean;
   pluseFive: number;
   sort: string;
+  steps: { [k: string]: boolean };
 }
 const initialState: Сheckbox = {
-  all: true,
-  without: true,
-  one: true,
-  two: true,
-  three: true,
+  steps: { all: true, without: true, one: true, two: true, three: true },
+
   tikets: [],
   status: false,
   error: false,
@@ -33,37 +26,17 @@ export const aviasalesSlice = createSlice({
     addTiket: (state, action: PayloadAction<any>) => {
       state.tikets = [...state.tikets, ...action.payload.tickets];
     },
-    selectId: (state, action: PayloadAction<string>) => {
-      // @ts-ignore
-
-      state[action.payload] = !state[action.payload];
-
-      if (action.payload === "all" && state.all) {
-        state.without = true;
-
-        state.one = true;
-
-        state.two = true;
-
-        state.three = true;
-      }
-
-      if (action.payload === "all" && !state.all) {
-        state.without = false;
-
-        state.one = false;
-
-        state.two = false;
-
-        state.three = false;
-      }
-      if (!state.without || !state.one || !state.two || !state.three) {
-        state.all = false;
-      }
-      if (state.without && state.one && state.two && state.three) {
-        state.all = true;
-      }
+    selectAll: (state, action: PayloadAction<any>) => {
+      const changedSteps = Object.keys(state.steps).reduce((acc, curr) => {
+        acc[curr] = action.payload;
+        return acc;
+      }, {});
+      state.steps = changedSteps;
     },
+    selectId: (state, action: PayloadAction<string>) => {
+      state.steps[action.payload] = !state.steps[action.payload];
+    },
+
     сhangeFilter: (state, action: PayloadAction<string>) => {
       state.sort = action.payload;
     },
@@ -88,6 +61,6 @@ export const {
   addTiket,
   stopLoading,
   setLoading,
+  selectAll,
 } = aviasalesSlice.actions;
-
 export default aviasalesSlice.reducer;

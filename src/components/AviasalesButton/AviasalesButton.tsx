@@ -7,38 +7,29 @@ import { сhangeFilter } from "../../store/getTiketsReducer";
 
 const { useState } = React;
 
-const AviasalesButton: React.FC = function () {
+function AviasalesButton() {
   const [size] = useState<SizeType>("large");
 
   const dispatch = useAppDispatch();
-
+  const buttons = [
+    { label: "cheap", text: "Самый дешевый" },
+    { label: "quick", text: "Самый быстрый" },
+    { label: "optimal", text: "Оптимальный" },
+  ];
   return (
     <>
-      <Button
-        type="primary"
-        size={size}
-        className="aviasales__button ant-btn-primary"
-        onClick={() => dispatch(сhangeFilter("cheap"))}
-      >
-        Самый дешевый
-      </Button>
-      <Button
-        size={size}
-        className="aviasales__button"
-        onClick={() => dispatch(сhangeFilter("quick"))}
-      >
-        Самый быстрый
-      </Button>
-      <Button
-        type="dashed"
-        size={size}
-        className="aviasales__button ant-btn-dashed"
-        onClick={() => dispatch(сhangeFilter("optimal"))}
-      >
-        Оптимальный
-      </Button>
+      {buttons.map((button) => (
+        <Button
+          type="primary"
+          size={size}
+          className="aviasales__button ant-btn-primary"
+          onClick={() => dispatch(сhangeFilter(button.label))}
+        >
+          {button.text}
+        </Button>
+      ))}
     </>
   );
-};
+}
 
 export default AviasalesButton;

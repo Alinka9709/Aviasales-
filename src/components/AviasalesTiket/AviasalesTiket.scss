@@ -23,7 +23,8 @@
   &-infos{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 13px;
+    grid-template-rows: repeat(1, 1fr);
   }
   &-path{
     color: #A0B0B9;

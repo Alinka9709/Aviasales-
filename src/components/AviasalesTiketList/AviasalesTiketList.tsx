@@ -7,11 +7,13 @@ import { AviasalesTiketProps } from "../interfaces/AviasalesTiketProps";
 import { AviasalesSegmentsProps } from "../interfaces/AviasalesSegmentsProps";
 import AviasalesButtonPlus from "../AviasalesButton/AviasalesButtonPlus";
 
-const AviasalesTiketList: React.FC = function () {
+function AviasalesTiketList() {
   const tikets = useAppSelector((state) => state.tikets.tikets);
-  const { all, sort, without, one, two, three, pluseFive } = useAppSelector(
-    (state) => state.tikets,
-  );
+  const {
+    steps: { all, without, one, two, three },
+    sort,
+    pluseFive,
+  } = useAppSelector((state) => state.tikets);
 
   const getCondition = () => {
     const arrCondition = [];
@@ -103,6 +105,6 @@ const AviasalesTiketList: React.FC = function () {
       {!hasData && <AviasalesButtonPlus />}
     </ul>
   );
-};
+}
 
 export default AviasalesTiketList;
