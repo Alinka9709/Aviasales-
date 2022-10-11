@@ -9,8 +9,9 @@ function AviasalesTransplants() {
   const dispatch = useAppDispatch();
   const spets = [
     { label: "without", text: "Без пересадок" },
-    { label: "two", text: "2 пересадки" },
     { label: "one", text: "1 пересадка" },
+    { label: "two", text: "2 пересадки" },
+
     { label: "three", text: "3 пересадки" },
   ];
   return (
@@ -20,10 +21,10 @@ function AviasalesTransplants() {
         <input
           className="transplants__check"
           type="checkbox"
-          checked={checkbox.steps.all}
+          checked={checkbox.allchek}
           name=""
           id=""
-          onChange={() => dispatch(selectAll(!checkbox.steps.all))}
+          onChange={() => dispatch(selectAll())}
         />
         <span className="transplants__span">все</span>
       </label>

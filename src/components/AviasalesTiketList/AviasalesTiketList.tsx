@@ -10,9 +10,10 @@ import AviasalesButtonPlus from "../AviasalesButton/AviasalesButtonPlus";
 function AviasalesTiketList() {
   const tikets = useAppSelector((state) => state.tikets.tikets);
   const {
-    steps: { all, without, one, two, three },
+    steps: { without, one, two, three },
     sort,
     pluseFive,
+    allchek,
   } = useAppSelector((state) => state.tikets);
 
   const getCondition = () => {
@@ -49,7 +50,7 @@ function AviasalesTiketList() {
     return false;
   }
   function tiketsFiltering() {
-    if (getCondition().length === 0 && !all) {
+    if (getCondition().length === 0 && !allchek) {
       return [];
     }
     return tikets

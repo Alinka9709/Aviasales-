@@ -8,11 +8,12 @@ interface Сheckbox {
   error: boolean;
   pluseFive: number;
   sort: string;
+  allchek: boolean;
   steps: { [k: string]: boolean };
 }
 const initialState: Сheckbox = {
-  steps: { all: true, without: true, one: true, two: true, three: true },
-
+  steps: { without: true, one: true, two: true, three: true },
+  allchek: true,
   tikets: [],
   status: false,
   error: false,
@@ -26,15 +27,35 @@ export const aviasalesSlice = createSlice({
     addTiket: (state, action: PayloadAction<any>) => {
       state.tikets = [...state.tikets, ...action.payload.tickets];
     },
-    selectAll: (state, action: PayloadAction<any>) => {
-      const changedSteps = Object.keys(state.steps).reduce((acc, curr) => {
-        acc[curr] = action.payload;
-        return acc;
-      }, {});
+    selectAll: (state) => {
+      const changedSteps = Object.keys(state.steps).reduce(
+        (acc: { [k: string]: boolean }, curr) => {
+          acc[curr] = !state.allchek;
+          return acc;
+        },
+        {},
+      );
+      state.allchek = !state.allchek;
       state.steps = changedSteps;
     },
     selectId: (state, action: PayloadAction<string>) => {
+      const changedSteps = Object.keys(state.steps).reduce(
+        (acc: { [k: string]: boolean }, curr) => {
+          if (curr === action.payload) {
+            acc[curr] = !state.steps[action.payload];
+          } else {
+            acc[curr] = state.steps[curr];
+          }
+          return acc;
+        },
+        {},
+      );
+
+      const boleanCheck = Object.values(changedSteps).every((item) => {
+        return item === true;
+      });
       state.steps[action.payload] = !state.steps[action.payload];
+      state.allchek = boleanCheck;
     },
 
     сhangeFilter: (state, action: PayloadAction<string>) => {
