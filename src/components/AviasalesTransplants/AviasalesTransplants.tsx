@@ -7,7 +7,7 @@ import "./AviasalesTransplants.scss";
 function AviasalesTransplants() {
   const checkbox = useAppSelector((state) => state.tikets);
   const dispatch = useAppDispatch();
-  const spets = [
+  const steps = [
     { label: "without", text: "Без пересадок" },
     { label: "one", text: "1 пересадка" },
     { label: "two", text: "2 пересадки" },
@@ -28,7 +28,7 @@ function AviasalesTransplants() {
         />
         <span className="transplants__span">все</span>
       </label>
-      {spets.map((el) => (
+      {steps.map((el) => (
         <label
           htmlFor="label"
           className="transplants__label"
